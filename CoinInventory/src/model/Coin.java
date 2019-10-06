@@ -11,7 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Coin.findAll", query="SELECT c FROM Coin c")
+@Table(name="coin")
 public class Coin implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -80,20 +80,6 @@ public class Coin implements Serializable {
 
 	public void setTransactions(List<Transaction> transactions) {
 		this.transactions = transactions;
-	}
-
-	public Transaction addTransaction(Transaction transaction) {
-		getTransactions().add(transaction);
-		transaction.setCoin(this);
-
-		return transaction;
-	}
-
-	public Transaction removeTransaction(Transaction transaction) {
-		getTransactions().remove(transaction);
-		transaction.setCoin(null);
-
-		return transaction;
 	}
 
 	public Coin(int id, String contidion, Date dateOnCoin, String storageLocation, String type,

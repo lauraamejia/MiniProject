@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Transactiontype.findAll", query="SELECT t FROM Transactiontype t")
+@Table(name="transactionType")
 public class Transactiontype implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -50,19 +50,6 @@ public class Transactiontype implements Serializable {
 		this.transactions = transactions;
 	}
 
-	public Transaction addTransaction(Transaction transaction) {
-		getTransactions().add(transaction);
-		transaction.setTransactiontype(this);
-
-		return transaction;
-	}
-
-	public Transaction removeTransaction(Transaction transaction) {
-		getTransactions().remove(transaction);
-		transaction.setTransactiontype(null);
-
-		return transaction;
-	}
 
 	public Transactiontype(int id, String tranType, List<Transaction> transactions) {
 		super();
