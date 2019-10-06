@@ -1,132 +1,127 @@
 package model;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the coin database table.
+ * 
+ */
 @Entity
-@Table(name="coin")
-public class Coin {
-	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+@NamedQuery(name="Coin.findAll", query="SELECT c FROM Coin c")
+public class Coin implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	private int id;
-	
-	@Column(name="type")
-	private String type;
-	
-	@Column(name="storageLocation")
+
+	private String contidion;
+
+	@Temporal(TemporalType.DATE)
+	private Date dateOnCoin;
+
 	private String storageLocation;
-	
-	@Column(name="condition")
-	private String condition;
-	
-	@Column(name="dateOnCoin")
-	private LocalDate dateOnCoin;
-	
-	@ManyToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="transaction_id")
-	private Transaction transaction;
-	
+
+	private String type;
+
+	//bi-directional many-to-one association to Transaction
+	@OneToMany(mappedBy="coin")
+	private List<Transaction> transactions;
+
+	public Coin() {
+	}
+
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	public String getContidion() {
+		return this.contidion;
+	}
+
+	public void setContidion(String contidion) {
+		this.contidion = contidion;
+	}
+
+	public Date getDateOnCoin() {
+		return this.dateOnCoin;
+	}
+
+	public void setDateOnCoin(Date dateOnCoin) {
+		this.dateOnCoin = dateOnCoin;
+	}
+
+	public String getStorageLocation() {
+		return this.storageLocation;
+	}
+
+	public void setStorageLocation(String storageLocation) {
+		this.storageLocation = storageLocation;
+	}
+
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	public String getStorageLocation() {
-		return storageLocation;
+	public List<Transaction> getTransactions() {
+		return this.transactions;
 	}
 
-	public void setStorageLocation(String storageLocation) {
-		this.storageLocation = storageLocation;
-	}
-	
-	public String getCondition() {
-		return condition;
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
 	}
 
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
-	
-	public LocalDate getDateOnCoin() {
-		return dateOnCoin;
-	}
+	public Transaction addTransaction(Transaction transaction) {
+		getTransactions().add(transaction);
+		transaction.setCoin(this);
 
-	public void setDateOnCoin(LocalDate dateOnCoin) {
-		this.dateOnCoin = dateOnCoin;
-	}
-
-	public Transaction getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(Transaction transactionID) {
-		this.transaction = transactionID;
-	}
-	
-	public void setNullTransaction() {
-		this.transaction = null;
-	}
-	
-	//constructor without id or owner
-		@Override
-	public String toString() {
-		return "Coin [id=" + id + ", type=" + type + ", storageLocation=" + storageLocation + ", condition=" + condition
-				+ ", dateOnCoin=" + dateOnCoin + ", transaction=" + transaction + "]";
+	public Transaction removeTransaction(Transaction transaction) {
+		getTransactions().remove(transaction);
+		transaction.setCoin(null);
+
+		return transaction;
 	}
 
-	public Coin(String type, String storageLocation, String condition, LocalDate dateOnCoin) {
-			super();
-			this.type = type;
-			this.storageLocation = storageLocation;
-			this.condition = condition;
-			this.dateOnCoin = dateOnCoin;
-		}
-	
-	//constructor without id
-	public Coin(String type, String storageLocation, String condition, LocalDate dateOnCoin, Transaction transaction) {
-		super();
-		this.type = type;
-		this.storageLocation = storageLocation;
-		this.condition = condition;
-		this.dateOnCoin = dateOnCoin;
-		this.transaction = transaction;
-	}
-
-
-	//all fields constructor
-	public Coin(int id, String type, String storageLocation, String condition, LocalDate dateOnCoin, Transaction transactionID) {
+	public Coin(int id, String contidion, Date dateOnCoin, String storageLocation, String type,
+			List<Transaction> transactions) {
 		super();
 		this.id = id;
-		this.type = type;
-		this.storageLocation = storageLocation;
-		this.condition = condition;
+		this.contidion = contidion;
 		this.dateOnCoin = dateOnCoin;
-		this.transaction = transactionID;
+		this.storageLocation = storageLocation;
+		this.type = type;
+		this.transactions = transactions;
 	}
-	//super constructor
-		public Coin() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
+
+	public Coin(String contidion, Date dateOnCoin, String storageLocation, String type,
+			List<Transaction> transactions) {
+		super();
+		this.contidion = contidion;
+		this.dateOnCoin = dateOnCoin;
+		this.storageLocation = storageLocation;
+		this.type = type;
+		this.transactions = transactions;
+	}
+
+	@Override
+	public String toString() {
+		return "Coin [id=" + id + ", contidion=" + contidion + ", dateOnCoin=" + dateOnCoin + ", storageLocation="
+				+ storageLocation + ", type=" + type + ", transactions=" + transactions + "]";
+	}
+	
+
 }

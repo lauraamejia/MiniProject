@@ -1,103 +1,114 @@
 package model;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the transaction database table.
+ * 
+ */
 @Entity
-@Table(name="transaction")
-public class Transaction {
-	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	
-	@Column(name="tranID")
-	private int tranID;
-	
-	@Column(name="price")
-	private String price;
-	
-	@Column(name="dealer")
+@NamedQuery(name="Transaction.findAll", query="SELECT t FROM Transaction t")
+public class Transaction implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private int tableID;
+
 	private String dealer;
-	
-	@Column(name="transDate")
-	private LocalDate transDate;
 
-	public int getId() {
-		return id;
+	private String price;
+
+	@Temporal(TemporalType.DATE)
+	private Date tranDate;
+
+	//bi-directional many-to-one association to Coin
+	@ManyToOne
+	@JoinColumn(name="id")
+	private Coin coin;
+
+	//bi-directional many-to-one association to Transactiontype
+	@ManyToOne
+	@JoinColumn(name="tranTypeID")
+	private Transactiontype transactiontype;
+
+	public Transaction() {
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getTableID() {
+		return this.tableID;
 	}
 
-	public int getTranID() {
-		return tranID;
-	}
-
-	public void setTranID(int tranID) {
-		this.tranID = tranID;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
+	public void setTableID(int tableID) {
+		this.tableID = tableID;
 	}
 
 	public String getDealer() {
-		return dealer;
+		return this.dealer;
 	}
 
 	public void setDealer(String dealer) {
 		this.dealer = dealer;
 	}
 
-	public LocalDate getTransDate() {
-		return transDate;
+	public String getPrice() {
+		return this.price;
 	}
 
-	public void setTransDate(LocalDate transDate) {
-		this.transDate = transDate;
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public Date getTranDate() {
+		return this.tranDate;
+	}
+
+	public void setTranDate(Date tranDate) {
+		this.tranDate = tranDate;
+	}
+
+	public Coin getCoin() {
+		return this.coin;
+	}
+
+	public void setCoin(Coin coin) {
+		this.coin = coin;
+	}
+
+	public Transactiontype getTransactiontype() {
+		return this.transactiontype;
+	}
+
+	public void setTransactiontype(Transactiontype transactiontype) {
+		this.transactiontype = transactiontype;
+	}
+
+	public Transaction(String dealer, String price, Date tranDate, Coin coin, Transactiontype transactiontype) {
+		super();
+		this.dealer = dealer;
+		this.price = price;
+		this.tranDate = tranDate;
+		this.coin = coin;
+		this.transactiontype = transactiontype;
+	}
+
+	public Transaction(int tableID, String dealer, String price, Date tranDate, Coin coin,
+			Transactiontype transactiontype) {
+		super();
+		this.tableID = tableID;
+		this.dealer = dealer;
+		this.price = price;
+		this.tranDate = tranDate;
+		this.coin = coin;
+		this.transactiontype = transactiontype;
 	}
 
 	@Override
 	public String toString() {
-		return "Transaction [id=" + id + ", tranID=" + tranID + ", price=" + price + ", dealer=" + dealer
-				+ ", transDate=" + transDate + "]";
-	}
-
-	public Transaction(int id, int tranID, String price, String dealer, LocalDate transDate) {
-		super();
-		this.id = id;
-		this.tranID = tranID;
-		this.price = price;
-		this.dealer = dealer;
-		this.transDate = transDate;
-	}
-
-	public Transaction(int tranID, String price, String dealer, LocalDate transDate) {
-		super();
-		this.tranID = tranID;
-		this.price = price;
-		this.dealer = dealer;
-		this.transDate = transDate;
-	}
-	
-	public Transaction() {
-		super();
-		// TODO Auto-generated constructor stub
+		return "Transaction [tableID=" + tableID + ", dealer=" + dealer + ", price=" + price + ", tranDate=" + tranDate
+				+ ", coin=" + coin + ", transactiontype=" + transactiontype + "]";
 	}
 
 }
