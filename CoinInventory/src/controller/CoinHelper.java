@@ -13,7 +13,7 @@ public class CoinHelper {
 	
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("CoinInventory");
 	
-	public void insertCoin(Coin c) {
+	public void addCoin(Coin c) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(c);
@@ -21,7 +21,7 @@ public class CoinHelper {
 		em.close();
 	}
 	
-	public List<Coin> showAllBuyers(){
+	public List<Coin> showAllCoins(){
 		EntityManager em = emfactory.createEntityManager();
 		List<Coin> allCoins = em.createQuery("SELECT i FROM Coin i").getResultList();
 		return allCoins;
