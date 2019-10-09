@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -15,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.Coin;
 
 /**
- * Servlet implementation class addcoinservlet
+ * Servlet implementation class savededititemservlet
  */
-@WebServlet("/addcoinservlet")
-public class addcoinservlet extends HttpServlet {
+@WebServlet("/savededititemservlet")
+public class savededititemservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addcoinservlet() {
+    public savededititemservlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,41 +41,43 @@ public class addcoinservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		doGet(request, response);
 		
-		//get parameters
+		//get instance of helper
+		CoinHelper instance = new CoinHelper();
+		
+		//get page data
+		String locid = request.getParameter("locid");
 		String type = request.getParameter("type");
-		String location = request.getParameter("location");
+		String location = request.getParameter("storagelocation");
 		String condition = request.getParameter("condition");
-		String date = request.getParameter("date");
+		String date = request.getParameter("dateOnCoin");
 		
-		//create new coin instance to save parameters to 
-		Coin itemtostore = new Coin();
+		//find item to update
+		Coin itemtoupdate = instance.searchForCoinById(Integer.parseInt(locid));
 		
-		itemtostore.setType(type);
-		itemtostore.setContidion(condition);
-		itemtostore.setStorageLocation(location);
-		
-		Date datetoadd;
+		//update items in coin object
+		Date dateoncoin;
 		
 		try {
-		 datetoadd=new SimpleDateFormat("dd/MM/yyyy").parse(date);
-			itemtostore.setDateOnCoin(datetoadd);
+		 dateoncoin=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+		 itemtoupdate.setDateOnCoin(dateoncoin);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}  
 		
-		//create instance of coin helper
-		CoinHelper instance = new CoinHelper();
+		itemtoupdate.setType(type);
+		itemtoupdate.setStorageLocation(location);
+		itemtoupdate.setContidion(condition);
 		
-		//add to database
-		instance.addCoin(itemtostore);
+		//save object to database
+		instance.updateCoin(itemtoupdate);
 		
-		//redirect back to page
-		getServletContext().getRequestDispatcher("/addcoin.jsp").forward(request, response);
+		//go back to edit page
+		getServletContext().getRequestDispatcher("/editcoin.jsp").forward(request, response);
+		
 		
 	}
 
 }
-

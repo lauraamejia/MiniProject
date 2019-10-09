@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Coin Inventory Program</title>
+<title>Edit coin detail</title>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
@@ -55,10 +55,8 @@ margin-top: 400px;
 }
 
 </style>
-
 </head>
 <body>
-
 <header>
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
 	
@@ -74,23 +72,15 @@ margin-top: 400px;
 </nav>
 	
 <div class="contents">
-	<form method = "post" action = "deletecoindataservlet">
-		<table>
-		<c:forEach items="${requestScope.allItems}" var="currentitem">
-		<tr>
-		 <td><input type="radio" name="id" value="${currentitem.locid}"></td>
-		 <td>${currentitem.type}</td>
-		 <td>${currentitem.storagelocation}</td>
-		 <td>${currentitem.condition}</td>
-		 <td>${currentitem.dateOnCoin}</td>
-		 </tr>
-		</c:forEach>
-		</table>
-		<h2>select location to delete</h2>
-		
+	<form method = "post" action = "savededititemservlet">
+		Type <input type ="text" name = "type" value="${AllItems.type}">
+		location <input type = "text" name = "storagelocation" value= "${AllItems.storagelocation}">
+		Condition <input type = "text" name = "condition" value= "${AllItems.condition}">
+		Date <input type = "text" name = "dateOnCoin" value= "${AllItems.dateOnCoin}">
+				<input type = "hidden" name = "locid" value="${AllItems.locid}">
+	<input type = "submit" value="Save">
 	<input type="submit">
 	</form>
-	
 </div>
 </body>
 </html>
