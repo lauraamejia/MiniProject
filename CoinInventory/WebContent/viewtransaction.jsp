@@ -65,17 +65,27 @@ margin-top: 400px;
 </header>
 <nav>
 	<ul>
-		<li>Add Coin</li>
-		<li>Edit Coin</li>
-		<li>Delete Coin</li>
-		<li>Add Coin Transaction</li>
-		<li>View Transactions</li>
+		<li><a href= "addcoin.jsp">Add Coin</a></li>
+		<li><a href="editcoinservlet">Edit Coin</a></li>
+		<li><a href="deletecoinservlet">Delete Coin</a></li>
+		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
+		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
 	</ul>
 </nav>
 	
 <div class="contents">
 <table>
-	<!-- insert table here -->
+	<c:forEach items="${requestScope.allItems}" var="currentitem">
+		<tr>
+		 <td><input type="radio" name="id" value="${currentitem.tableID}"></td>
+		 <td>${currentitem.coin.type}</td>
+		 <td>${currentitem.dealor}</td>
+		 <td>${currentitem.price}</td>
+		 <td>${currentitem.tranDate}</td>
+		 <td>${currentitem.transactiontype}</td>
+		 </tr>
+		</c:forEach>
+		</table>
 </table>
 
 </div>

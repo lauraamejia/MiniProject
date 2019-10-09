@@ -65,16 +65,32 @@ margin-top: 400px;
 </header>
 <nav>
 	<ul>
-		<li>Add Coin</li>
-		<li>Edit Coin</li>
-		<li>Delete Coin</li>
-		<li>Add Coin Transaction</li>
-		<li>View Transactions</li>
+		<li><a href= "addcoin.jsp">Add Coin</a></li>
+		<li><a href="editcoinservlet">Edit Coin</a></li>
+		<li><a href="deletecoinservlet">Delete Coin</a></li>
+		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
+		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
 	</ul>
 </nav>
 	
 <div class="contents">
-	<!-- data here -->
+	<form method = "post" action = "deletecoindataservlet">
+		<table>
+		<c:forEach items="${requestScope.allItems}" var="currentitem">
+		<tr>
+		 <td><input type="radio" name="id" value="${currentitem.locid}"></td>
+		 <td>${currentitem.type}</td>
+		 <td>${currentitem.storagelocation}</td>
+		 <td>${currentitem.condition}</td>
+		 <td>${currentitem.dateOnCoin}</td>
+		 </tr>
+		</c:forEach>
+		</table>
+		<h2>select location to delete</h2>
+		
+	<input type="submit">
+	</form>
+	
 </div>
 </body>
 </html>

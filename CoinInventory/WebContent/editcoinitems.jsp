@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Coin Inventory Program</title>
+<title>Edit coin detail</title>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
@@ -55,10 +55,8 @@ margin-top: 400px;
 }
 
 </style>
-
 </head>
 <body>
-
 <header>
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
 	
@@ -74,22 +72,15 @@ margin-top: 400px;
 </nav>
 	
 <div class="contents">
-<form action="addcoinservlet" method="post">
-	<fieldset>
-	<legend>Coin Detail</legend>
-	Coin Type:
-	<input type="text" name="type">
-	Storage Location:
-	<input type="text" name="location">
-	Condition:
-	<input type="text" name="condition">
-	Date On Coin:
-	<input type="date" name="date">
-	<br/>
-	<br/>
+	<form method = "post" action = "savededititemservlet">
+		Type <input type ="text" name = "type" value="${AllItems.type}">
+		location <input type = "text" name = "storagelocation" value= "${AllItems.storagelocation}">
+		Condition <input type = "text" name = "condition" value= "${AllItems.condition}">
+		Date <input type = "text" name = "dateOnCoin" value= "${AllItems.dateOnCoin}">
+				<input type = "hidden" name = "locid" value="${AllItems.locid}">
+	<input type = "submit" value="Save">
 	<input type="submit">
-	</fieldset>
-</form>
+	</form>
 </div>
 </body>
 </html>
