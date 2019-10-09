@@ -49,7 +49,7 @@ public class deletecoindataservlet extends HttpServlet {
 		Coin itemtodelete = instance.searchForCoinById(Integer.parseInt(id));
 		
 		//delete coin in database
-		instance.addCoin(itemtodelete);
+		instance.deleteCoin(itemtodelete);
 		
 		//redirect back to page
 		getServletContext().getRequestDispatcher("/deletecoin.jsp").forward(request, response);

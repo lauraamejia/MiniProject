@@ -78,16 +78,13 @@ margin-top: 400px;
 	<c:forEach items="${requestScope.allItems}" var="currentitem">
 		<tr>
 		 <td><input type="radio" name="id" value="${currentitem.tableID}"></td>
-		 <td>${currentitem.coin.type}</td>
-		 <td>${currentitem.dealor}</td>
+		 <td>${currentitem.dealer}</td>
 		 <td>${currentitem.price}</td>
 		 <td>${currentitem.tranDate}</td>
 		 <td>${currentitem.transactiontype}</td>
 		 </tr>
 		</c:forEach>
 		</table>
-</table>
-
 </div>
 </body>
 </html>

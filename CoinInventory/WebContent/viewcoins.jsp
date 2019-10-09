@@ -72,12 +72,28 @@ margin-top: 400px;
 		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
 	</ul>
 </nav>
-	
-<div class="contents">
-<table>
-	<!-- insert table here -->
-</table>
 
-</div>
+ <div align="center">
+        <table  BORDER="1" align="center" bgcolor="#E8FDFF"
+     weight="50%" height="20%" >
+            <caption><h2>List of Coins</h2></caption>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Storage Location</th>
+                <th>Condition</th>
+                <th>Date On Coin</th>
+            </tr>
+            <c:forEach items="${requestScope.allItems}" var="currentitem">
+                <tr>
+                    <td><c:out value="${currentitem.id}" /></td>
+                    <td><c:out value="${currentitem.type}" /></td>
+                    <td><c:out value="${currentitem.storageLocation}" /></td>
+                    <td><c:out value="${currentitem.contidion}" /></td>
+                     <td><c:out value="${currentitem.dateOnCoin}" /></td>
+                    <td>
+            </c:forEach>
+        </table>
+    </div>	
 </body>
 </html>

@@ -66,17 +66,14 @@ margin-top: 400px;
 		<tr>
 		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
 		 <td>${currentitem.type}</td>
-		 <td>${currentitem.storagelocation}</td>
+		 <td>${currentitem.storageLocation}</td>
 		 <td>${currentitem.dateOnCoin}</td>
 		 
 		 </tr>
 		</c:forEach>
 		</table>
-		<h2>select Coin to add transaction detal to and add detail below</h2>
+		<h2>select Coin to add transaction detail to and add detail below</h2>
 
-		<input type="text" name="dealor">
-		<input type="text" name="price">
-		<input type="date" name="date">
 		<select id="tranlist">
 			<option value="1">Buy</option>
 			<option value="2">Sell</option>

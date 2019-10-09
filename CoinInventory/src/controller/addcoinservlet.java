@@ -44,7 +44,6 @@ public class addcoinservlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		//get parameters
 		String type = request.getParameter("type");
 		String location = request.getParameter("location");
 		String condition = request.getParameter("condition");
