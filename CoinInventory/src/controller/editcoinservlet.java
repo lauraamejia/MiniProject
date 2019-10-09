@@ -41,7 +41,7 @@ public class editcoinservlet extends HttpServlet {
 				}
 				
 				//direct to page
-				getServletContext().getRequestDispatcher("/editcoinitems.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/editcoin.jsp").forward(request, response);
 		
 		
 		
