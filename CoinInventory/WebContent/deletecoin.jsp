@@ -74,7 +74,23 @@ margin-top: 400px;
 </nav>
 	
 <div class="contents">
-	<!-- data here -->
+	<form method = "post" action = "">
+		<table>
+		<c:forEach items="${requestScope.allItems}" var="currentitem">
+		<tr>
+		 <td><input type="radio" name="id" value="${currentitem.locid}"></td>
+		 <td>${currentitem.type}</td>
+		 <td>${currentitem.storagelocation}</td>
+		 <td>${currentitem.condition}</td>
+		 <td>${currentitem.dateOnCoin}</td>
+		 </tr>
+		</c:forEach>
+		</table>
+		<h2>select location to delete</h2>
+		
+	<input type="submit">
+	</form>
+	
 </div>
 </body>
 </html>

@@ -74,7 +74,7 @@ margin-top: 400px;
 </nav>
 	
 <div class="contents">
-<form>
+<form action="addcoinservlet" method="post">
 	<fieldset>
 	<legend>Coin Detail</legend>
 	Coin Type:
