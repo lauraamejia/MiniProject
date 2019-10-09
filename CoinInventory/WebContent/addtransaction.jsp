@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Coin Inventory Program</title>
+<title>Add Transaction</title>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Jura&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
@@ -58,38 +59,35 @@ margin-top: 400px;
 
 </head>
 <body>
-
-<header>
-<img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
-	
-</header>
-<nav>
-	<ul>
-		<li><a href= "addcoin.jsp">Add Coin</a></li>
-		<li><a href="editcoinservlet">Edit Coin</a></li>
-		<li><a href="deletecoinservlet">Delete Coin</a></li>
-		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
-		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
-	</ul>
-</nav>
-	
 <div class="contents">
-<form action="addcoinservlet" method="post">
-	<fieldset>
-	<legend>Coin Detail</legend>
-	Coin Type:
-	<input type="text" name="type">
-	Storage Location:
-	<input type="text" name="location">
-	Condition:
-	<input type="text" name="condition">
-	Date On Coin:
-	<input type="date" name="date">
-	<br/>
-	<br/>
+	<form method = "post" action = "addtransactiondataservlet">
+		<table>
+		<c:forEach items="${requestScope.allItems}" var="currentitem">
+		<tr>
+		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
+		 <td>${currentitem.type}</td>
+		 <td>${currentitem.storagelocation}</td>
+		 <td>${currentitem.dateOnCoin}</td>
+		 
+		 </tr>
+		</c:forEach>
+		</table>
+		<h2>select Coin to add transaction detal to and add detail below</h2>
+
+		<input type="text" name="dealor">
+		<input type="text" name="price">
+		<input type="date" name="date">
+		<select id="tranlist">
+			<option value="1">Buy</option>
+			<option value="2">Sell</option>
+			<option value="3">Trade</option>
+		</select>
+		
+		
+				
 	<input type="submit">
-	</fieldset>
-</form>
+	</form>
+	
 </div>
 </body>
 </html>
