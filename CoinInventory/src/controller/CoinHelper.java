@@ -30,13 +30,11 @@ public class CoinHelper {
 	public void deleteCoin(Coin toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Coin> typedQuery = em.createQuery("select c from Coin c where c.id = :selectedid and c.contidion = :selectedContidion and c.dateoncoin = :selecteDateOnCoin and c.type = :selectedType", Coin.class);
+		TypedQuery<Coin> typedQuery = em.createQuery("select c from Coin c where c.id = :selectedId", Coin.class);
 		
 		//Substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedId", toDelete.getId());
-		typedQuery.setParameter("selectedContidion", toDelete.getContidion());
-		typedQuery.setParameter("selectedDateOnCoin", toDelete.getDateOnCoin());
-		typedQuery.setParameter("selectedType", toDelete.getType());
+		
 		
 		//we only want one result
 		typedQuery.setMaxResults(1);

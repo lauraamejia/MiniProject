@@ -81,7 +81,7 @@ margin-top: 400px;
 		 <td>${currentitem.dealer}</td>
 		 <td>${currentitem.price}</td>
 		 <td>${currentitem.tranDate}</td>
-		 <td>${currentitem.transactiontype}</td>
+		 <td>${currentitem.transactiontype.tranType}</td>
 		 </tr>
 		</c:forEach>
 		</table>

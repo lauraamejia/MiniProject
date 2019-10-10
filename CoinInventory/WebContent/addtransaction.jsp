@@ -65,7 +65,7 @@ margin-top: 400px;
 		<c:forEach items="${requestScope.allItems}" var="currentitem">
 		<tr>
 		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
-		 <td>${currentitem.type}</td>
+		 <td><${currentitem.type}</td>
 		 <td>${currentitem.storageLocation}</td>
 		 <td>${currentitem.dateOnCoin}</td>
 		 
@@ -80,7 +80,9 @@ margin-top: 400px;
 			<option value="3">Trade</option>
 		</select>
 		
-		
+		<input type="text" name ="price">
+		<input type="text" name ="dealor">
+		<input type="date" name = "trandate">
 				
 	<input type="submit">
 	</form>

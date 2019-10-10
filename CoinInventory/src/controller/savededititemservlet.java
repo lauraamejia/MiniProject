@@ -75,7 +75,7 @@ public class savededititemservlet extends HttpServlet {
 		instance.updateCoin(itemtoupdate);
 		
 		//go back to edit page
-		getServletContext().getRequestDispatcher("/editcoin.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		
 		
 	}

@@ -52,8 +52,8 @@ public class addtransactiondataservlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String dealor = request.getParameter("dealor");
 		String price = request.getParameter("price");
-		String date = request.getParameter("date");
-		String trantype = request.getParameter("tranlist");
+		String date = request.getParameter("trandate");
+		//String trantype = request.getParameter("tranlist");
 		
 		Coin item = instance.searchForCoinById(Integer.parseInt(id));
 		
@@ -69,7 +69,7 @@ public class addtransactiondataservlet extends HttpServlet {
 				e.printStackTrace();
 			}  
 		
-		tran.setId(Integer.parseInt(trantype));
+		tran.setId(item.getId());
 			
 		trantostore.setCoin(item);
 		trantostore.setDealer(dealor);
