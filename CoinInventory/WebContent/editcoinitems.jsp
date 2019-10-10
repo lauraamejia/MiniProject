@@ -78,7 +78,7 @@ margin-top: 400px;
 		Condition <input type = "text" name = "condition" value= "${AllItems.contidion}">
 		Date <input type = "text" name = "dateOnCoin" value= "${AllItems.dateOnCoin}">
 				<input type = "hidden" name = "locid" value="${AllItems.id}">
-	<input type = "submit" value="Save">
+	
 	<input type="submit">
 	</form>
 </div>
