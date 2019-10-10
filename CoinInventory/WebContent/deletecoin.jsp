@@ -78,17 +78,17 @@ margin-top: 400px;
 		<table>
 		<c:forEach items="${requestScope.allItems}" var="currentitem">
 		<tr>
-		 <td><input type="radio" name="id" value="${currentitem.locid}"></td>
+		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
 		 <td>${currentitem.type}</td>
-		 <td>${currentitem.storagelocation}</td>
-		 <td>${currentitem.condition}</td>
+		 <td>${currentitem.storageLocation}</td>
+		 <td>${currentitem.contidion}</td>
 		 <td>${currentitem.dateOnCoin}</td>
 		 </tr>
 		</c:forEach>
 		</table>
 		<h2>select location to delete</h2>
 		
-	<input type="submit">
+	<input type="submit" value = "delete">
 	</form>
 	
 </div>
