@@ -55,14 +55,13 @@ margin-top: 400px;
 }
 
 </style>
-
 </head>
 <body>
 
 <header>
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
-	
 </header>
+
 <nav>
 	<ul>
 		<li><a href= "addcoin.jsp">Add Coin</a></li>

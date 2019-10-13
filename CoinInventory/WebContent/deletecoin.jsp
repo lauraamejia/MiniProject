@@ -61,8 +61,8 @@ margin-top: 400px;
 
 <header>
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
-	
 </header>
+
 <nav>
 	<ul>
 		<li><a href= "addcoin.jsp">Add Coin</a></li>
@@ -80,10 +80,10 @@ margin-top: 400px;
 		<c:forEach items="${requestScope.allItems}" var="currentitem">
 		<tr>
 		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
-		 <td>${currentitem.type}</td>
-		 <td>${currentitem.storageLocation}</td>
-		 <td>${currentitem.contidion}</td>
-		 <td>${currentitem.dateOnCoin}</td>
+		 <td>Coin Type: ${currentitem.type}</td>
+		 <td>Storage Location: ${currentitem.storageLocation}</td>
+		 <td>Coin Condition: ${currentitem.contidion}</td>
+		 <td>Date On Coin: ${currentitem.dateOnCoin}</td>
 		 </tr>
 		</c:forEach>
 		</table>
