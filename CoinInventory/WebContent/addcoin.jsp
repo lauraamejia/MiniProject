@@ -70,6 +70,7 @@ margin-top: 400px;
 		<li><a href="deletecoinservlet">Delete Coin</a></li>
 		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
 		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
 	</ul>
 </nav>
 	

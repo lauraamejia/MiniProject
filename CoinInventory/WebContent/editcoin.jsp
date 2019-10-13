@@ -70,6 +70,7 @@ margin-top: 400px;
 		<li><a href="deletecoinservlet">Delete Coin</a></li>
 		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
 		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
 	</ul>
 </nav>
 	
@@ -87,7 +88,7 @@ margin-top: 400px;
 		</c:forEach>
 		</table>
 		<h2>select location to edit</h2>
-	<input type="submit" value = "Save">
+	<input type="submit" value = "Edit">
 	</form>
 </div>
 </body>

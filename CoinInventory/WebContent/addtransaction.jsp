@@ -59,6 +59,22 @@ margin-top: 400px;
 
 </head>
 <body>
+
+<header>
+<img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
+	
+</header>
+<nav>
+	<ul>
+		<li><a href= "addcoin.jsp">Add Coin</a></li>
+		<li><a href="editcoinservlet">Edit Coin</a></li>
+		<li><a href="deletecoinservlet">Delete Coin</a></li>
+		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
+		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
+	</ul>
+</nav>
+	
 <div class="contents">
 	<form method = "post" action = "addtransactiondataservlet">
 		<table>
@@ -72,7 +88,7 @@ margin-top: 400px;
 		 </tr>
 		</c:forEach>
 		</table>
-		<h2>select Coin to add transaction detail to and add detail below</h2>
+		<h2>Select coin to add transaction detail to and add detail below</h2>
 
 		<select id="tranlist">
 			<option value="1">Buy</option>
@@ -80,11 +96,18 @@ margin-top: 400px;
 			<option value="3">Trade</option>
 		</select>
 		
-		<input type="text" name ="price">
-		<input type="text" name ="dealor">
-		<input type="date" name = "trandate">
-				
+		<fieldset>
+	<legend>Transaction Detail</legend>
+	Price:
+	<input type="text" name="price">
+	Dealer:
+	<input type="text" name="dealor">
+	Transaction Date:
+	<input type="text" name="trandate">
+	<br/>
+	<br/>
 	<input type="submit">
+	</fieldset>
 	</form>
 	
 </div>
