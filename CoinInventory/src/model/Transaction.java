@@ -17,6 +17,7 @@ public class Transaction implements Serializable {
 	@Id
 	private int tableID;
 
+	
 	private String dealer;
 
 	private String price;
@@ -30,10 +31,11 @@ public class Transaction implements Serializable {
 	private Coin coin;
 
 	//bi-directional many-to-one association to Transactiontype
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name="tranTypeID")
 	private Transactiontype transactiontype;
-
+	
+	
 	public Transaction() {
 	}
 
@@ -78,7 +80,7 @@ public class Transaction implements Serializable {
 	}
 
 	public Transactiontype getTransactiontype() {
-		return this.transactiontype;
+		return transactiontype;
 	}
 
 	public void setTransactiontype(Transactiontype transactiontype) {

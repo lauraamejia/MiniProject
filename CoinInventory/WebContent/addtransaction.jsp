@@ -59,30 +59,45 @@ margin-top: 400px;
 
 </head>
 <body>
+<header>
+<img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
+</header>
+
+<nav>
+	<ul>
+		<li><a href= "addcoin.jsp">Add Coin</a></li>
+		<li><a href="editcoinservlet">Edit Coin</a></li>
+		<li><a href="deletecoinservlet">Delete Coin</a></li>
+		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
+		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
+	</ul>
+</nav>
+
 <div class="contents">
 	<form method = "post" action = "addtransactiondataservlet">
 		<table>
 		<c:forEach items="${requestScope.allItems}" var="currentitem">
 		<tr>
 		 <td><input type="radio" name="id" value="${currentitem.id}"></td>
-		 <td><${currentitem.type}</td>
-		 <td>${currentitem.storageLocation}</td>
-		 <td>${currentitem.dateOnCoin}</td>
+		 <td>Coin Type: ${currentitem.type}</td>
+		 <td>Storage Location: ${currentitem.storageLocation}</td>
+		 <td>Date On Coin:${currentitem.dateOnCoin}</td>
 		 
 		 </tr>
 		</c:forEach>
 		</table>
 		<h2>select Coin to add transaction detail to and add detail below</h2>
 
-		<select id="tranlist">
+		<select name="tranlist">
 			<option value="1">Buy</option>
 			<option value="2">Sell</option>
 			<option value="3">Trade</option>
 		</select>
 		
-		<input type="text" name ="price">
-		<input type="text" name ="dealor">
-		<input type="date" name = "trandate">
+		Input Price: <input type="text" name ="price">
+		Input Dealor:<input type="text" name ="dealor">
+		Input Transaction Date:<input type="date" name = "trandate">
 				
 	<input type="submit">
 	</form>

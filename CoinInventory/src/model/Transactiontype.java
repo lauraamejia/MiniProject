@@ -55,18 +55,18 @@ public class Transactiontype implements Serializable {
 		super();
 		this.id = id;
 		this.tranType = tranType;
-		this.transactions = transactions;
+	//	this.transactions = transactions;
 	}
 
 	public Transactiontype(String tranType, List<Transaction> transactions) {
 		super();
 		this.tranType = tranType;
-		this.transactions = transactions;
+	//	this.transactions = transactions;
 	}
 
 	@Override
 	public String toString() {
-		return "Transactiontype [id=" + id + ", tranType=" + tranType + ", transactions=" + transactions + "]";
+		return "Transactiontype [id=" + id + ", tranType=" + tranType + ", transactions=" + transactions +  "]";
 	}
 	
 

@@ -55,14 +55,13 @@ margin-top: 400px;
 }
 
 </style>
-
 </head>
 <body>
 
 <header>
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
-	
 </header>
+
 <nav>
 	<ul>
 		<li><a href= "addcoin.jsp">Add Coin</a></li>
@@ -70,6 +69,7 @@ margin-top: 400px;
 		<li><a href="deletecoinservlet">Delete Coin</a></li>
 		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
 		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
 	</ul>
 </nav>
 	

@@ -68,15 +68,16 @@ margin-top: 400px;
 		<li><a href="deletecoinservlet">Delete Coin</a></li>
 		<li><a href="addtransactionservlet">Add Coin Transaction</a></li>
 		<li><a href="ViewAllTransactionsServlet">View Transactions</a></li>
+		<li><a href="ViewAllCoinServlet">View Coins</a></li>
 	</ul>
 </nav>
 	
 <div class="contents">
 	<form method = "post" action = "savededititemservlet">
-		Type <input type ="text" name = "type" value="${AllItems.type}">
-		location <input type = "text" name = "storagelocation" value= "${AllItems.storageLocation}">
-		Condition <input type = "text" name = "condition" value= "${AllItems.contidion}">
-		Date <input type = "text" name = "dateOnCoin" value= "${AllItems.dateOnCoin}">
+		Type: <input type ="text" name = "type" value="${AllItems.type}">
+		location: <input type = "text" name = "storagelocation" value= "${AllItems.storageLocation}">
+		Condition: <input type = "text" name = "condition" value= "${AllItems.contidion}">
+		Date: <input type = "date" name = "dateOnCoin" value= "${AllItems.dateOnCoin}">
 				<input type = "hidden" name = "locid" value="${AllItems.id}">
 	
 	<input type="submit">

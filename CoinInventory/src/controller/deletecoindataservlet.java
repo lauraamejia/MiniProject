@@ -37,7 +37,7 @@ public class deletecoindataservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doGet(request, response);
+		//doGet(request, response);
 		
 		//get id to delete
 		String id = request.getParameter("id");
@@ -52,7 +52,7 @@ public class deletecoindataservlet extends HttpServlet {
 		instance.deleteCoin(itemtodelete);
 		
 		//redirect back to page
-		getServletContext().getRequestDispatcher("/deletecoin.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		
 	}
 
