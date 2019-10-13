@@ -75,7 +75,8 @@ margin-top: 400px;
 </nav>
 
  <div align="center">
-        <table  BORDER="1" align="center" bgcolor="#E8FDFF"
+ <form>
+        <table  BORDER="1" align="center" bgcolor="#ffffff"
      weight="50%" height="20%" >
             <caption><h2>List of Coins</h2></caption>
             <tr>
@@ -95,6 +96,7 @@ margin-top: 400px;
                     <td>
             </c:forEach>
         </table>
+        </form>
     </div>	
 </body>
 </html>

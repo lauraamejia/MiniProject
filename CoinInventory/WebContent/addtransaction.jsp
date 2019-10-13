@@ -63,6 +63,8 @@ margin-top: 400px;
 <img alt="stacks of coins" src="coinbanner.jpg" width=100%/>
 </header>
 
+
+
 <nav>
 	<ul>
 		<li><a href= "addcoin.jsp">Add Coin</a></li>
@@ -87,7 +89,7 @@ margin-top: 400px;
 		 </tr>
 		</c:forEach>
 		</table>
-		<h2>select Coin to add transaction detail to and add detail below</h2>
+		<h2>Select coin to add transaction detail to and add detail below</h2>
 
 		<select name="tranlist">
 			<option value="1">Buy</option>
@@ -99,7 +101,20 @@ margin-top: 400px;
 		Input Dealor:<input type="text" name ="dealor">
 		Input Transaction Date:<input type="date" name = "trandate">
 				
+
+		<fieldset>
+	<legend>Transaction Detail</legend>
+	Price:
+	<input type="text" name="price">
+	Dealer:
+	<input type="text" name="dealor">
+	Transaction Date:
+	<input type="text" name="trandate">
+	<br/>
+	<br/>
+
 	<input type="submit">
+	</fieldset>
 	</form>
 	
 </div>
