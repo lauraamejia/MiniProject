@@ -99,22 +99,9 @@ margin-top: 400px;
 		
 		Input Price: <input type="text" name ="price">
 		Input Dealor:<input type="text" name ="dealor">
-		Input Transaction Date:<input type="date" name = "trandate">
-				
-
-		<fieldset>
-	<legend>Transaction Detail</legend>
-	Price:
-	<input type="text" name="price">
-	Dealer:
-	<input type="text" name="dealor">
-	Transaction Date:
-	<input type="text" name="trandate">
-	<br/>
-	<br/>
+		Input Transaction Date:<input type="date" name = "trandate">			
 
 	<input type="submit">
-	</fieldset>
 	</form>
 	
 </div>

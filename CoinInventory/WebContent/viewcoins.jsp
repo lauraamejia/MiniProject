@@ -56,7 +56,6 @@ margin-top: 400px;
 
 </style>
 
-</head>
 <body>
 
 <header>
@@ -74,7 +73,7 @@ margin-top: 400px;
 	</ul>
 </nav>
 
- <div align="center">
+ <div align="center" class = "contents">
  <form>
         <table  BORDER="1" align="center" bgcolor="#ffffff"
      weight="50%" height="20%" >

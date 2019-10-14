@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Coin;
 import model.Transaction;
 import model.Transactiontype;
-
 /**
  * Servlet implementation class addtransactiondataservlet
  */
@@ -93,7 +93,7 @@ public class addtransactiondataservlet extends HttpServlet {
 			
 				e.printStackTrace();
 			}  
-		
+		 
 		//look up transaction type 
 		Transactiontype tran = traninstance.searchForTransactionById(Integer.parseInt(trantype));
 		

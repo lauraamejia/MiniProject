@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -60,12 +61,12 @@ public class savededititemservlet extends HttpServlet {
 		Date dateoncoin;
 		
 		try {
-		 dateoncoin=new SimpleDateFormat("dd/MM/yyyy").parse(date);
-		 itemtoupdate.setDateOnCoin(dateoncoin);
-		} catch (ParseException e) {
-		
-			e.printStackTrace();
-		}  
+			 dateoncoin=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+			 itemtoupdate.setDateOnCoin(dateoncoin);
+			} catch (ParseException e) {
+			
+				e.printStackTrace();
+			}  
 		
 		itemtoupdate.setType(type);
 		itemtoupdate.setStorageLocation(location);

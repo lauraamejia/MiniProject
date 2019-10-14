@@ -22,6 +22,7 @@ public class Coin implements Serializable {
 
 	private String contidion;
 
+
 	@Temporal(TemporalType.DATE)
 	private Date dateOnCoin;
 
